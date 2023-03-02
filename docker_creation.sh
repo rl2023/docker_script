@@ -73,7 +73,7 @@ echo "Developer folder ... " $dev_folder
 #xhost +
 
 docker run -it --privileged \
--e LOCAL_USER_ID="$(id -u)" \
+-e LOCAL_USER_ID=$(id -u) \
 -v $dev_folder:/home/dev/:rw \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
 -e DISPLAY=:0 \
