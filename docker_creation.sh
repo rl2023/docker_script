@@ -27,7 +27,8 @@ then
 	echo "Insert the name image for the container or select an image"
 	echo "1 - ROS1 image"
 	echo "2 - ROS2 image"
-	echo "3 - Robotics Lab ROS1"
+	echo "3 - PX4 stack with ROS1 and ROS2"
+	echo "4 - Robotics Lab ROS1"
 	
 	read in
 	if [[ ($in -eq "1") ]]
@@ -39,6 +40,10 @@ then
 			echo "Selected ROS2 image"
 			im_name=osrf/ros:humble-desktop
 	elif [[ ($in -eq "3") ]]
+	then
+			echo "Selected PX4 control stack with ROS1 and ROS2"
+			im_name=px4io/px4-dev-ros2-foxy
+	elif [[ ($in -eq "4") ]]
 	then
 			echo "Selected Robotics Lab ROS1 image"
 			im_name=jocacace/rl_ros1	
@@ -78,7 +83,6 @@ echo "Developer folder ... " $dev_folder
 #xhost +
 
 docker run -it --privileged -v /dev/bus/usb:/dev/bus/usb \
--e LOCAL_USER_ID=$(id -u) \
 -v $dev_folder:/home/dev/:rw \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
 -e DISPLAY=:0 \
