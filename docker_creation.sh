@@ -46,7 +46,7 @@ then
 	elif [[ ($in -eq "4") ]]
 	then
 			echo "Selected Robotics Lab ROS1 image"
-			im_name=jocacace/rl_ros1	
+			im_name=jocacace/rlab_ros1:latest
 	else
 			im_name=$in
 	fi
