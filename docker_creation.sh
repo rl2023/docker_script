@@ -85,7 +85,7 @@ echo "Developer folder ... " $dev_folder
 docker run -it --privileged -v /dev/bus/usb:/dev/bus/usb \
 -v $dev_folder:/home/dev/:rw \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
--e DISPLAY=:0 \
+-e DISPLAY=$DISPLAY \
 --network host \
 --workdir="/home/dev/" \
 --name=$container_name $im_name bash
